@@ -1,17 +1,18 @@
-import { createStaticNavigation, NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Store } from './screens/Store';
-import { useContext } from 'react';
 import { useTheme } from '../theme/ThemeProvider';
+import { Community } from './screens/Community';
+import { Store } from './screens/Store';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export const AppNavigator = () => {
   const theme = useTheme();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      <Tab.Navigator
         screenOptions={{
           headerStyle: {
             backgroundColor: theme.theme.background,
@@ -19,19 +20,23 @@ export const AppNavigator = () => {
           headerTitleStyle: {
             color: theme.theme.text,
           },
+          tabBarStyle: {
+            backgroundColor: theme.theme.background,
+          },
         }}
+        initialRouteName="Store"
       >
-        <Stack.Screen
+        <Tab.Screen
           name="Store"
           component={Store}
           options={{ title: 'Store' }}
         />
-        <Stack.Screen
-          name="Home2"
-          component={Store}
-          options={{ title: 'Store' }}
+        <Tab.Screen
+          name="Community"
+          component={Community}
+          options={{ title: 'Community' }}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

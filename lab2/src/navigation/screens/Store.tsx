@@ -46,7 +46,7 @@ export const Store = () => {
               <FeaturedTitle>Dead by Daylight</FeaturedTitle>
               <FeaturedSubtitle>Recommended by your friend, Player</FeaturedSubtitle>
               <FeaturedPrice>
-                <Discount>-70%</Discount> <OldPrice>$18</OldPrice> <NewPrice>$5</NewPrice>
+                <Discount>-70%</Discount><OldPrice>$18</OldPrice><NewPrice>$5</NewPrice>
               </FeaturedPrice>
             </FeaturedInfo>
           </FeaturedGame>
