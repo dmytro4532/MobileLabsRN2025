@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import styled, { ThemeProvider } from 'styled-components/native';
 import { darkTheme } from '../../theme/theme';
+import { Option } from '../../components/Option';
 
 export const Profile = () => {
   return (
@@ -14,14 +15,8 @@ export const Profile = () => {
         <Name>Дмитро Герасимчук</Name>
         <Group>ІПЗ-21-2</Group>
         <Options>
-          <Option>
-            <OptionText>Change Theme</OptionText>
-            <Arrow>{'>'}</Arrow>
-          </Option>
-          <Option>
-            <OptionText>Logout</OptionText>
-            <Arrow>{'>'}</Arrow>
-          </Option>
+          <Option text="Change Theme" onPress={() => console.log('Change Theme')} />
+          <Option text="Logout" />
         </Options>
       </Container>
     </ThemeProvider>
@@ -72,24 +67,4 @@ const Group = styled.Text`
 
 const Options = styled.View`
   width: 100%;
-`;
-
-const Option = styled(TouchableOpacity)`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  background-color: ${({ theme }) => theme.cardBackground};
-  border-radius: 8px;
-  margin-bottom: 8px;
-`;
-
-const OptionText = styled.Text`
-  font-size: 16px;
-  color: ${({ theme }) => theme.text};
-`;
-
-const Arrow = styled.Text`
-  font-size: 16px;
-  color: ${({ theme }) => theme.secondary};
 `;

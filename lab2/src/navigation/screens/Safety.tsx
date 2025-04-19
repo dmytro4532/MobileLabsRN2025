@@ -2,46 +2,38 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import styled, { ThemeProvider } from 'styled-components/native';
 import { darkTheme } from '../../theme/theme';
+import { Option } from '../../components/Option';
 
 export const Safety = () => {
   return (
     <ThemeProvider theme={darkTheme}>
-    <Container>
-      <Tabs>
-        <Tab active>
-          <TabText>Guard</TabText>
-        </Tab>
-        <Tab>
-          <TabText>Confirmations</TabText>
-        </Tab>
-      </Tabs>
-      <Content>
-        <LoggedInText>Logged in as player</LoggedInText>
-        <Code>N5KCV</Code>
-        <ProgressBar />
-        <Description>
-          You’ll enter your code each time you enter your password to sign in to your Steam account.
-        </Description>
-        <Tip>
-          Tip: If you don’t share your PC, you can select "Remember my password" when you sign in to the PC client to
-          enter your password and authenticator code less often.
-        </Tip>
-        <Options>
-          <Option>
-            <OptionText>Remove Authenticator</OptionText>
-            <Arrow>{'>'}</Arrow>
-          </Option>
-          <Option>
-            <OptionText>My Recovery Code</OptionText>
-            <Arrow>{'>'}</Arrow>
-          </Option>
-          <Option>
-            <OptionText>Help</OptionText>
-            <Arrow>{'>'}</Arrow>
-          </Option>
-        </Options>
-      </Content>
-    </Container>
+      <Container>
+        <Tabs>
+          <Tab active>
+            <TabText>Guard</TabText>
+          </Tab>
+          <Tab>
+            <TabText>Confirmations</TabText>
+          </Tab>
+        </Tabs>
+        <Content>
+          <LoggedInText>Logged in as player</LoggedInText>
+          <Code>N5KCV</Code>
+          <ProgressBar />
+          <Description>
+            You’ll enter your code each time you enter your password to sign in to your Steam account.
+          </Description>
+          <Tip>
+            Tip: If you don’t share your PC, you can select "Remember my password" when you sign in to the PC client to
+            enter your password and authenticator code less often.
+          </Tip>
+          <Options>
+            <Option text="Remove Authenticator" />
+            <Option text="My Recovery Code" />
+            <Option text="Help" />
+          </Options>
+        </Content>
+      </Container>
     </ThemeProvider>
   );
 };
@@ -58,7 +50,7 @@ const Tabs = styled.View`
   background-color: ${({ theme }) => theme.cardBackground};
 `;
 
-const Tab = styled(TouchableOpacity)<{ active?: boolean }>`
+const Tab = styled(TouchableOpacity) <{ active?: boolean }>`
   padding: 8px 16px;
   border-radius: 16px;
   background-color: ${({ active, theme }) => (active ? theme.primary : theme.cardBackground)};
@@ -112,24 +104,4 @@ const Tip = styled.Text`
 
 const Options = styled.View`
   width: 100%;
-`;
-
-const Option = styled(TouchableOpacity)`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  background-color: ${({ theme }) => theme.cardBackground};
-  border-radius: 8px;
-  margin-bottom: 8px;
-`;
-
-const OptionText = styled.Text`
-  font-size: 16px;
-  color: ${({ theme }) => theme.text};
-`;
-
-const Arrow = styled.Text`
-  font-size: 16px;
-  color: ${({ theme }) => theme.secondary};
 `;
