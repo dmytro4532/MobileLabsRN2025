@@ -1,12 +1,12 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from '../theme/ThemeProvider';
-import { Community } from './screens/Community';
-import { Store } from './screens/Store';
 import { Chat } from './screens/Chat';
-import { Safety } from './screens/Safety';
+import { Community } from './screens/Community';
 import { Profile } from './screens/Profile';
+import { Safety } from './screens/Safety';
+import { Store } from './screens/Store';
+import { Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,27 +32,27 @@ export const AppNavigator = () => {
         <Tab.Screen
           name="Store"
           component={Store}
-          options={{ title: 'Store' }}
+          options={{ tabBarIcon: ({ color, size }) => <Ionicons name="cart-outline" size={size} color={color} /> }}
         />
         <Tab.Screen
           name="Community"
           component={Community}
-          options={{ title: 'Community' }}
+          options={{ tabBarIcon: ({ color, size }) => <Ionicons name="people-outline" size={size} color={color} /> }}
         />
         <Tab.Screen
           name="Chats"
           component={Chat}
-          options={{ title: 'Chat' }}
+          options={{ tabBarIcon: ({ color, size }) => <Ionicons name="chatbubble-outline" size={size} color={color} /> }}
         />
         <Tab.Screen
           name="Safety"
           component={Safety}
-          options={{ title: 'Safety' }}
+          options={{ tabBarIcon: ({ color, size }) => <Ionicons name="shield-checkmark-outline" size={size} color={color} /> }}
         />
         <Tab.Screen
           name="Profile"
           component={Profile}
-          options={{ title: 'Profile' }}
+          options={{ tabBarIcon: ({ color, size }) => <Ionicons name="person-outline" size={size} color={color} /> }}
         />
       </Tab.Navigator>
     </NavigationContainer>

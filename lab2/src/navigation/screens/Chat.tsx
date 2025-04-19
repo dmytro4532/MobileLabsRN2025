@@ -3,6 +3,7 @@ import { FlatList, TouchableOpacity } from 'react-native';
 import styled, { ThemeProvider } from 'styled-components/native';
 import { darkTheme } from '../../theme/theme';
 import { ChatItem } from '../../components/ChatItem';
+import { useTheme } from '../../theme/ThemeProvider';
 
 const chats = [
   {
@@ -80,8 +81,10 @@ const chats = [
 ];
 
 export const Chat = () => {
+  const { theme } = useTheme();
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <Container>
         <Tabs>
           <Tab active>

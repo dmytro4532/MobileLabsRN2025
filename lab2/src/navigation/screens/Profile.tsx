@@ -3,10 +3,13 @@ import { TouchableOpacity } from 'react-native';
 import styled, { ThemeProvider } from 'styled-components/native';
 import { darkTheme } from '../../theme/theme';
 import { Option } from '../../components/Option';
+import { useTheme } from '../../theme/ThemeProvider';
 
 export const Profile = () => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <Container>
         <AvatarContainer>
           <Avatar source={{ uri: 'https://i.pravatar.cc/40?img=3' }} />
@@ -15,7 +18,7 @@ export const Profile = () => {
         <Name>Дмитро Герасимчук</Name>
         <Group>ІПЗ-21-2</Group>
         <Options>
-          <Option text="Change Theme" onPress={() => console.log('Change Theme')} />
+          <Option text="Change Theme" onPress={toggleTheme} />
           <Option text="Logout" />
         </Options>
       </Container>

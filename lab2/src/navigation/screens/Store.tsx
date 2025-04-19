@@ -2,6 +2,7 @@ import { GameCard } from '../../components/GameCard';
 import { FlatList, ScrollView, Text, TouchableOpacity } from 'react-native';
 import styled, { ThemeProvider } from 'styled-components/native';
 import { darkTheme } from '../../theme/theme';
+import { useTheme } from '../../theme/ThemeProvider';
 
 const games = [
   {
@@ -36,8 +37,10 @@ const games = [
 ];
 
 export const Store = () => {
+  const { theme } = useTheme();
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <Container>
         <ScrollView>
           <FeaturedGame>

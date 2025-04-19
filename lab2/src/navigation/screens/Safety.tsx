@@ -3,10 +3,13 @@ import { TouchableOpacity } from 'react-native';
 import styled, { ThemeProvider } from 'styled-components/native';
 import { darkTheme } from '../../theme/theme';
 import { Option } from '../../components/Option';
+import { useTheme } from '../../theme/ThemeProvider';
 
 export const Safety = () => {
+  const { theme } = useTheme();
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <Container>
         <Tabs>
           <Tab active>

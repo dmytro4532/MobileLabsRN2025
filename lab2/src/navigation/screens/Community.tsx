@@ -3,6 +3,7 @@ import { FlatList, TouchableOpacity } from 'react-native';
 import styled, { ThemeProvider } from 'styled-components/native';
 import { CommunityPost } from '../../components/CommunityPost';
 import { darkTheme } from '../../theme/theme';
+import { useTheme } from '../../theme/ThemeProvider';
 
 const posts = [
   {
@@ -30,8 +31,10 @@ const posts = [
 ];
 
 export const Community = () => {
+  const { theme } = useTheme();
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <Container>
         <Header>
           <HeaderTitle>Community</HeaderTitle>
