@@ -1,5 +1,4 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 export const ChatItem = ({ name, message, date, unread, avatar, online }: any) => (

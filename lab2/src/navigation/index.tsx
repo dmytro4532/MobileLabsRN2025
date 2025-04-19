@@ -6,6 +6,7 @@ import { Community } from './screens/Community';
 import { Store } from './screens/Store';
 import { Chat } from './screens/Chat';
 import { Safety } from './screens/Safety';
+import { Profile } from './screens/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -47,6 +48,11 @@ export const AppNavigator = () => {
           name="Safety"
           component={Safety}
           options={{ title: 'Safety' }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={Profile}
+          options={{ title: 'Profile' }}
         />
       </Tab.Navigator>
     </NavigationContainer>
