@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTheme } from '../theme/ThemeProvider';
 import { Community } from './screens/Community';
 import { Store } from './screens/Store';
+import { Chat } from './screens/Chat';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,6 +36,11 @@ export const AppNavigator = () => {
           name="Community"
           component={Community}
           options={{ title: 'Community' }}
+        />
+        <Tab.Screen
+          name="Chats"
+          component={Chat}
+          options={{ title: 'Chat' }}
         />
       </Tab.Navigator>
     </NavigationContainer>
